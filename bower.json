@@ -1,0 +1,37 @@
+{
+  "name": "areyouhappy.today",
+  "version": "0.0.1",
+  "authors": [
+    "Varun Batra <codevarun@gmail.com>"
+  ],
+  "description": "Simple and Elegant way to know if people are happy around you or not",
+  "main": "index.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "are",
+    "you",
+    "happy?",
+    "happy",
+    "are",
+    "you",
+    "happy",
+    "happiness",
+    "survey"
+  ],
+  "license": "Private",
+  "homepage": "http://areyouhappy.today",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.2",
+    "paper-icon-button": "Polymer/paper-icon-button#~0.5.2"
+  }
+}
