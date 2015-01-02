@@ -4,7 +4,7 @@ html(lang="en")
         meta(name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes")
         title= pageTitle||"Are You Happy?"
         link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
-        script(src="/webcomponentsjs/webcomponents.min.js")
+        script(src="//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.5.1-1/webcomponents.min.js")
         link(rel="import" href="/bower/core-icons/core-icons.html")
         link(rel="import" href="/bower/paper-icon-button/paper-icon-button.html")
         link(rel="import" href="/bower/paper-shadow/paper-shadow.html")
@@ -26,7 +26,7 @@ html(lang="en")
                                     br
                                     br
                                     paper-icon-button.hover.huge.label-danger.answer(data-is="Yes" icon="favorite" title="with :hover style")
-                                    &nbsp;
+                                    | &nbsp;
                                     paper-icon-button.hover.huge.label-warning.answer(data-is="No" icon="clear" title="with :hover style")
                                     br
                                     br
@@ -34,8 +34,11 @@ html(lang="en")
                                 p.lead
                                     | Thanks for your answer
             .row.col-md-12.text-center
+                br
                 p
-                    | powered by #[a(href="http://sailsjs.org/") Sails.js] Built with Love by #[a(href="http://varunbatra.com/") Varun Batra]
+                    | Powered by #[a(href="http://sailsjs.org/") Sails.js] Built with Love by #[a(href="http://varunbatra.com/" title="Node.js Programmer") Varun Batra]
+                p
+                    | Designed for Survey before and after "Happyness Programme"
         script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
         script.
             $(function(){
