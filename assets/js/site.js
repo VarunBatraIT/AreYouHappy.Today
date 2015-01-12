@@ -13,11 +13,13 @@ $(function () {
 
 
     $('#answer').hide();
-    $("#why").keydown(function (event) {
-        if (event.keyCode == 32) {
-            event.preventDefault();
-        }
-    });
+    /*
+     $("#why").keydown(function (event) {
+     if (event.keyCode == 32) {
+     event.preventDefault();
+     }
+     });
+     */
     $('.answer').click(function (event) {
         event.preventDefault();
         $('#answer-input').val($(this).attr('data-is'));
