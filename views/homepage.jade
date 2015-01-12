@@ -4,6 +4,7 @@ html(lang="en")
         meta(name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes")
         title= pageTitle||"Are You Happy?"
         link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+        link(rel="stylesheet" href="/bower/jQCloud/jqcloud/jqcloud.css")
         script(src="//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.5.1-1/webcomponents.min.js")
         link(rel="import" href="/bower/core-icons/core-icons.html")
         link(rel="import" href="/bower/paper-icon-button/paper-icon-button.html")
@@ -13,6 +14,15 @@ html(lang="en")
                     width:100px;
                     height:100px;
                 }
+                .margin span{
+                    margin:2px;
+                }
+    mixin analytics(why, sad, size)
+        if !sad
+            span.text-success(style="font-size:#{size}px")= why
+        else
+            span.text-warning(style="font-size:#{size}px")= why
+
     body
         .container
             .row
@@ -20,9 +30,11 @@ html(lang="en")
                     .col-md-4.col-md-pull-4.col-md-push-4.text-center
                         paper-shadow(z="2")
                             div#question
+                                br
                                 h1.text-center.lead Are you Happy?
                                 form#question-form
-                                    textarea(placeholder="Why? (Optional)")
+                                    input#answer-input(type="hidden" name="answer")
+                                    textarea#why(rows="1" cols="20" name="why",placeholder="Why? (One Word)")
                                     br
                                     br
                                     paper-icon-button.hover.huge.label-danger.answer(data-is="Yes" icon="favorite" title="with :hover style")
@@ -33,30 +45,25 @@ html(lang="en")
                             div#answer
                                 p.lead
                                     | Thanks for your answer
-            .row.col-md-12.text-center
-                br
-                p
-                    | Powered by #[a(href="http://sailsjs.org/") Sails.js] Built with Love by #[a(href="http://varunbatra.com/" title="Node.js Programmer") Varun Batra]
-                p
-                    | Designed for Survey before and after "Happyness Programme"
+                hr
+                .row.col-md-12
+                    .row
+                        .col-md-12.margin#jqcloud.jqcloud.text-center.center-block
+                            .row
+                                .col-md-6#jqcloud-sad
+                                .col-md-6#jqcloud-happy
+                            //+analytics('Dad',true,10)
+                            //+analytics('Brother',false,20)
+                        .row-md-6
+                .row.col-md-12.text-center
+                    br
+                    p
+                        | Powered by #[a(href="http://sailsjs.org/") Sails.js] Built with Love by #[a(href="http://varunbatra.com/" title="Node.js Programmer") Varun Batra]
+                    p
+                        | Designed for Survey before and after "Happyness Programme"
         script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
-        script.
-            $(function(){
-                $('#answer').hide();
-                $('.answer').click(function(event){
-                    event.preventDefault();
-                    var data = $('#question-form').serialize();
-                    $.ajax({
-                    'url' : '/index/answer/',
-                    'data' : data,
-                    'dataType' : 'json',
-                    success: function(data){
-                        $('#question').hide('slow');
-                        $('#answer').show('slow');
-                    }
-                    })
-                });
-            });
+        script(src="/bower/jQCloud/jqcloud/jqcloud-1.0.3.min.js")
+        script(src="/js/site.js")
 
 
 

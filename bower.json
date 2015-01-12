@@ -32,6 +32,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#~0.5.2",
-    "paper-icon-button": "Polymer/paper-icon-button#~0.5.2"
+    "paper-icon-button": "Polymer/paper-icon-button#~0.5.2",
+    "jQCloud": "lucaong/jQCloud#~1.0.3"
   }
 }
