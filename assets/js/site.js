@@ -1,16 +1,20 @@
 $(function () {
+    function updateStats() {
+        $.get('/index/stats', function (data) {
+            var data = data.data
+            $('#jqcloud-sad').html("");
+            $('#jqcloud-happy').html("");
+            $('#jqcloud-sad').jQCloud(data['sad'], {
+                height: 200
+            });
+            $('#jqcloud-happy').jQCloud(data['happy'], {
+                height: 200
+            });
 
-    $.get('/index/stats', function (data) {
-        var data = data.data
-        $('#jqcloud-sad').jQCloud(data['sad'], {
-            height: 200
         });
-        $('#jqcloud-happy').jQCloud(data['happy'], {
-            height: 200
-        });
+    }
 
-    });
-
+    updateStats();
 
     $('#answer').hide();
     /*
@@ -32,6 +36,7 @@ $(function () {
             success: function (data) {
                 $('#question').hide('slow');
                 $('#answer').show('slow');
+                updateStats();
             }
         })
     });
